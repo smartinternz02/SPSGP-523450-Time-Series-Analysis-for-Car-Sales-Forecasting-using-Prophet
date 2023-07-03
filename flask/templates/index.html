@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h2>Forecasting on the Car Sales Value</h2>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <h3>Predict the Sales Value</h3>
+        <p>Forecasting or Predicting the sale value helps the investors to invest in such a time where profits can be maximum. This Application helps you in predicting the sale value of a day. It is built on the monthly sales data from 1960-1968. Time series analysis is made on the data for accurate predictions</p>
+        <img src="https://img.freepik.com/free-vector/buying-renting-new-used-speedy-sports-car_3446-651.jpg?w=360">
+      </div>
+
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="dateInput">Specify the Date for prediction:</label>
+          <form action="/predict" method="POST">
+            <input type="date" class="form-control" id="dateInput" name="date" required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        {% if prediction %}
+        <h5>Prediction Result:</h5>
+        <p>{{ prediction }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
